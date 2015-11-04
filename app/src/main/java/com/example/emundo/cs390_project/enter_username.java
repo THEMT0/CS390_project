@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import android.content.Intent;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +89,7 @@ public class enter_username extends AppCompatActivity implements LoaderCallbacks
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                loginWithUsername();
             }
         });
 
@@ -190,6 +192,37 @@ public class enter_username extends AppCompatActivity implements LoaderCallbacks
             mAuthTask.execute((Void) null);
         }
     }
+
+    private void loginWithUsername()
+    {
+        // Reset errors.
+        mEmailView.setError(null);
+        //mPasswordView.setError(null);
+
+        // Store values at the time of the login attempt.
+        String email = mEmailView.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+
+        if (TextUtils.isEmpty(email)) {
+            mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
+            cancel = true;
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+            startActivity(new Intent(this, UsersList.class));
+        }
+    }
+
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
