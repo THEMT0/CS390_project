@@ -26,6 +26,10 @@
             android:name=".UsersList"
             android:label="@string/title_activity_users_list" >
         </activity>
+        <activity
+            android:name=".MessagingActivity"
+            android:label="@string/title_activity_messaging" >
+        </activity>
     </application>
 
 </manifest>
