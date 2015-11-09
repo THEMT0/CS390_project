@@ -25,7 +25,7 @@ public class UsersList extends AppCompatActivity {
 
         String[] items={"Apple","Banana","Clementine"};
         itemList=new ArrayList<String>(Arrays.asList(items));
-        adapter=new ArrayAdapter<String>(this,R.layout.activity_users_list,R.id.txtview,itemList);
+        adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.txtview,itemList);
         userList.setAdapter(adapter);
 
         //itemList.add("HelloWorld");
