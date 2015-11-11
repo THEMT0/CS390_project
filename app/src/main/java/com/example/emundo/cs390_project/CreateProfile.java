@@ -1,16 +1,36 @@
 package com.example.emundo.cs390_project;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 public class CreateProfile extends AppCompatActivity {
+
+    Button submitButton;
+    EditText usernameTextBox;
+    EditText passwordTextBox;
+    EditText bioTextBox;
+    ImageView profileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
+
+        submitButton = (Button) findViewById(R.id.create_profile_button);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CreateProfile.this, UsersList.class));
+            }
+        });
+
     }
 
     @Override
