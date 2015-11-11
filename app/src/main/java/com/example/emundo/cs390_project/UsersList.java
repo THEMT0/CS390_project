@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.content.Intent;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
 
 public class UsersList extends AppCompatActivity {
 
@@ -23,14 +26,31 @@ public class UsersList extends AppCompatActivity {
 
         userList = (ListView) findViewById(R.id.UserListBox);
 
-        String[] items={"Apple","Banana","Clementine"};
+        String[] items={"Alex","Drew","Emmundo"};
         itemList=new ArrayList<String>(Arrays.asList(items));
         adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.txtview,itemList);
         userList.setAdapter(adapter);
 
+        //sample code for dynamically adding elements to list
         //itemList.add("HelloWorld");
         // notify listview of data changed
         //adapter.notifyDataSetChanged();
+
+        userList.setOnItemClickListener(new ListClickHandler());
+
+        /*userList.setOnItemClickListener(new OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?>adapter,View v, int position){
+
+                //ItemClicked item = adapter.getItem(position);
+
+                startActivity(new Intent(UsersList.this, MessagingActivity.class));
+
+            }
+
+
+        });*/
 
     }
 
@@ -54,5 +74,20 @@ public class UsersList extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class ListClickHandler implements OnItemClickListener{
+
+        @Override
+        public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
+            // TODO Auto-generated method stub
+
+            // create intent to start another activity
+            Intent intent = new Intent(UsersList.this, MessagingActivity.class);
+            // add the selected text item to our intent
+            startActivity(intent);
+
+        }
+
     }
 }
