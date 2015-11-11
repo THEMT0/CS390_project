@@ -30,6 +30,10 @@
             android:name=".MessagingActivity"
             android:label="@string/title_activity_messaging" >
         </activity>
+        <activity
+            android:name=".CreateProfile"
+            android:label="@string/title_activity_create_profile" >
+        </activity>
     </application>
 
 </manifest>

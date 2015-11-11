@@ -40,6 +40,11 @@
                 android:layout_marginTop="16dp" android:text="Submit Username"
                 android:textStyle="bold" />
 
+            <Button android:id="@+id/create_profile_button" style="?android:textAppearanceSmall"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="Create Profile"
+                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 

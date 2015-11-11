@@ -64,6 +64,7 @@ public class enter_username extends AppCompatActivity implements LoaderCallbacks
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    Button CreateProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,13 @@ public class enter_username extends AppCompatActivity implements LoaderCallbacks
         });*/
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        CreateProfileButton = (Button) findViewById(R.id.create_profile_button);
+        CreateProfileButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(enter_username.this, CreateProfile.class));
+            }
+        });
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
